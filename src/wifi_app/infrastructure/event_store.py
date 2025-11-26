@@ -1,5 +1,5 @@
 from .mongo_client import MongoDBClient
-from ..domain.events import DomainEvent
+from ..domain.events import Event
 from bson import ObjectId
 
 class MongoEventStore:
@@ -7,7 +7,7 @@ class MongoEventStore:
         self.db = MongoDBClient.get_db()
         self.collection = self.db['event_store']
 
-    def append(self, event: DomainEvent):
+    def append(self, event: Event):
         """
         Herhangi bir Domain Event'i (Sinyal, Ev Kaydı, Analiz, Öneri) veritabanına kaydeder.
         """

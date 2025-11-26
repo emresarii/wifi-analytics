@@ -4,7 +4,7 @@ from dataclasses import dataclass, field, asdict
 
 
 @dataclass
-class DomainEvent:
+class Event:
     event_id: str = field(init=False)
     timestamp: datetime = field(init=False)
     
@@ -30,7 +30,7 @@ class DomainEvent:
         }
 
 @dataclass
-class HouseRegistered(DomainEvent):
+class HouseRegistered(Event):
     house_id: str
     house_type: str
     owner_name: str
@@ -38,7 +38,7 @@ class HouseRegistered(DomainEvent):
     rooms: list = field(default_factory=list)
 
 @dataclass
-class WifiSignalCaptured(DomainEvent):
+class WifiSignalCaptured(Event):
     house_id: str
     room: str
     rssi: int
@@ -52,7 +52,7 @@ class WifiSignalCaptured(DomainEvent):
     bssid: str = ""
 
 @dataclass
-class RoomPerformanceCalculated(DomainEvent):
+class RoomPerformanceCalculated(Event):
     house_id: str
     room_name: str
     gaming_score: int      # Düşük Ping, Düşük Jitter önemli
@@ -65,7 +65,7 @@ class RoomPerformanceCalculated(DomainEvent):
     packet_loss_avg: float
 
 @dataclass
-class PerformanceRecommendationGenerated(DomainEvent):
+class PerformanceRecommendationGenerated(Event):
     house_id: str
     room_recommendations: dict 
     global_recommendation_text: str 
