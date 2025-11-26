@@ -1,4 +1,4 @@
-# 📡 Wifi Mesh Analytics Platform
+#  Wifi Mesh Analytics Platform
 
 An **homemade-grade** WiFi network monitoring and analytics platform
 designed to visualize signal quality, calculate performance scores.
@@ -111,6 +111,21 @@ The script generates: - \~30 houses\
 - Thousands of WiFi signals\
 - Performance calculations\
 - AI recommendations
+
+## 📂 Project Structure
+
+    ├── docker-compose.yml
+    ├── src/
+    │   ├── config/
+    │   ├── wifi_app/
+    │   │   ├── api/
+    │   │   ├── domain/
+    │   │   └── infra/
+    ├── frontend/
+    │   ├── src/
+    │   │   ├── components/
+    │   │   ├── pages/
+
 
 ------------------------------------------------------------------------
 
