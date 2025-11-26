@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  # BE (Django 8000)
+  web:
+    build: .
+    container_name: django_backend
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./src:/app
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    depends_on:
+      - db
+
+  # DB (MongoDB - Port 27017)
+  db:
+    image: mongo:6.0
+    container_name: wifi_mongo_db
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  # FE (React - Port 5173)
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      
+    container_name: react_frontend
+    working_dir: /app
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules # İçerideki modülleri koru
+    command: npm run dev -- --host
+    ports:
+      - "5173:5173"
+
+volumes:
+  mongo_data:

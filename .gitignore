@@ -1,0 +1,72 @@
+# --- PYTHON / DJANGO ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Django specific
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+media/
+staticfiles/
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv/
+
+# --- FRONTEND (NODE / REACT) ---
+frontend/node_modules/
+frontend/dist/
+frontend/build/
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+# --- DOCKER & DATABASE ---
+# MongoDB volume verilerini (eğer proje içine mount ettiysen) yoksay
+mongo_data/
+.docker/
+
+# --- IDE / EDİTÖR ---
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# --- ÇEVRE DEĞİŞKENLERİ (GÜVENLİK) ---
+# .env dosyaları şifre içerir, asla repoya atılmamalıdır!
+.env
+frontend/.env
+
+# --- GEREKSİZ DOSYALAR ---
+# Test amaçlı oluşturduğumuz scriptlerin repoya gitmesini istemiyorsan:
+data_generator_v*.py
